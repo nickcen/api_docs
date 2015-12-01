@@ -1,0 +1,23 @@
+.navbar.navbar-default.navbar-static-top
+  .container
+    button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href="" API
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      ul.nav.navbar-nav
+        - if can? :read, App
+          li= link_to "应用管理", apps_path
+      - if current_user
+        .pull-right.nav.navbar-nav style='margin-top:13px'
+          .dropdown
+            a#user_menu role="button" data-toggle="dropdown" data-target="#" href="#"
+              .btn.btn-success
+                span =current_user.name
+                span.caret
+            ul.dropdown-menu role='menu' aria-labelledby="user_menu"
+              li role="presentation"
+                - if can? :index, Worker
+                  li = link_to "权限管理", workers_path
+                li = link_to "登出", logout_path, method: :post

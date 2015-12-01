@@ -1,0 +1,7 @@
+h3.text-center.text-primary
+  br
+  br
+  br
+  | 欢迎使用
+  - unless current_user
+    =link_to "登陆", login_routing_page_path, class: 'btn btn-success text-center', style:'margin-left:20px'

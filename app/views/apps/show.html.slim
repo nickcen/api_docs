@@ -1,0 +1,40 @@
+p#notice = notice
+
+.btn-group role='group'
+  = link_to 'Back', apps_path, class: 'btn'
+  = link_to 'Edit', edit_app_path(@app), class: 'btn'
+  
+table.table.table-bordered.table-striped
+  tr
+    td Name
+    td = @app.name
+  tr
+    td Description
+    td = @app.description
+  
+
+.btn-group role='group'
+  = link_to 'New Spec', new_app_spec_path(@app), class: 'btn'
+
+
+.panel.panel-primary
+  .panel-heading Specs
+  .panel-body
+    table.table.table-striped
+      thead: tr
+        th width='20%' Version
+        th width='70%' Description
+        th
+        th
+        th
+      tbody
+        - @specs.each do |spec|
+          tr
+            td = spec.version
+            td = spec.description
+            td = link_to 'Preview', "/ui?url=#{app_spec_url(@app, spec, format: 'yaml')}", target: '_blank'
+            td = link_to 'Define', "/editor?url=#{app_spec_url(@app, spec, format: 'yaml')}", target: '_blank'
+            td = link_to 'Edit', edit_app_spec_path(@app, spec)
+            td = link_to 'Destroy', app_spec_path(@app, spec), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+

@@ -1,0 +1,29 @@
+.panel.panel-primary
+  .panel-heading 权限管理
+  .panle-body
+    table.table.table-striped
+      thead
+        tr
+          th width='15%' 登陆名
+          th width='15%' 姓名
+          th width='15%' 邮件
+          th width='15%' 是否管理员
+          th width='15%' 是否开发
+          th width='15%' 是否测试
+          
+          th 操作
+          
+
+      tbody
+        - @workers.each do |worker|
+          tr
+            td = worker.sso_id
+            td = worker.name
+            td = worker.email
+            td = tick worker.is_admin
+            td = tick worker.is_developer
+            td = tick worker.is_tester
+            td = link_to '编辑权限', edit_worker_path(worker), :class => "btn"
+            
+
+    = will_paginate @workers

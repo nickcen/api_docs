@@ -1,0 +1,17 @@
+{
+  "disableCodeGen": true,
+  "editorOptions": {
+    "theme": "ace/theme/atom_dark"
+  },
+  "autocompleteExtension": {},
+  "useBackendForStorage": true,
+  "backendThrottle": 200,
+  "keyPressDebounceTime": 200,
+  "backendEndpoint": "http://127.0.0.1:4000/apps/1/specs/1.yaml",
+  "useYamlBackend": true,
+  "disableFileMenu": true,
+  "headerBranding": false,
+  "disableNewUserIntro": true,
+  "enableTryIt": false,
+  "brandingCssClass": ""
+}

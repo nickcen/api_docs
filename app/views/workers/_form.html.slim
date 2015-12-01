@@ -1,0 +1,9 @@
+.form-container style='padding:15px'
+  = simple_form_for @worker do |f|
+    = f.input :name, :disabled => true
+    = f.input :email, :disabled => true
+    = f.input :is_admin
+    = f.input :is_developer
+    = f.input :is_tester
+
+    = f.button :submit

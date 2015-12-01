@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Swagger Editor</title>
+  <base href="/editor/" />
+  <meta name="description" content="Swagger Editor">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/branding.css">
+</head>
+<body>
+  <div class="total-wrapper" ui-view></div>
+  <script type='text/javascript'>
+  var url = window.location.search.match(/url=([^&]+)/);
+  url = decodeURIComponent(url[1]);
+  window.$$embeddedDefaults = {
+    "disableCodeGen": true,
+    "editorOptions": {
+      "theme": "ace/theme/atom_dark"
+    },
+    "autocompleteExtension": {},
+    "useBackendForStorage": true,
+    "backendThrottle": 200,
+    "keyPressDebounceTime": 2000,
+    "backendEndpoint": url,
+    "useYamlBackend": true,
+    "disableFileMenu": true,
+    "headerBranding": false,
+    "disableNewUserIntro": true,
+    "enableTryIt": false,
+    "brandingCssClass": ""
+  };
+  </script>
+  <script src="scripts/vendor.js"></script>
+  <script src="scripts/scripts.js"></script>
+  <script src="scripts/branding.js"></script>
+</body>
+</html>
