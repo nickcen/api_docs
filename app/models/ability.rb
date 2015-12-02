@@ -7,16 +7,15 @@ class Ability
       can :manage, Worker
     end
 
+    puts "#{user}"
+
     can [:root_welcome_page], Worker do |worker|
       true
     end
 
-    can [:manage], App do |worker|
-      worker.developer? || worker.tester?
-    end
-
-    can [:manage], Spec do |worker|
-      worker.developer? || worker.tester?
+    if user.developer? || user.tester?
+      can [:manage], App
+      can [:manage], Spec
     end
   end
 end

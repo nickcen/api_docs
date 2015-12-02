@@ -1,5 +1,5 @@
 class SpecsController < ApplicationController
-  authorize_resource
+  load_and_authorize_resource
   
   before_action :set_app, only: [:index, :show, :edit, :update, :destroy, :new, :create]
   before_action :set_spec, only: [:show, :edit, :update, :destroy]

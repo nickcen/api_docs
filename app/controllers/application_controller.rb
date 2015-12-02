@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter CASClient::Frameworks::Rails::Filter,except: [:root_welcome_page]
   before_action :find_or_create_worker
-  check_authorization
-
-  skip_authorization_check
+  check_authorization except: [:logout]
 
   def logout
     session[:worker_id] = nil

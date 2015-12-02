@@ -28,7 +28,7 @@ ApiDocs::Application.configure do
   config.assets.debug = true
 
   CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "your cas url",
+    :cas_base_url => "cas url",
     :enable_single_sign_out => true,
     :ticket_store => :active_record_ticket_store
     )
