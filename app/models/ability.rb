@@ -12,11 +12,11 @@ class Ability
     end
 
     can [:manage], App do |worker|
-      worker.developer? || worker.tester
+      worker.developer? || worker.tester?
     end
 
     can [:manage], Spec do |worker|
-      worker.developer? || worker.tester
+      worker.developer? || worker.tester?
     end
   end
 end
